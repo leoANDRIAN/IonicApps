@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recettes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-list>
+  <app-recettes *ngFor="let rec of listeRecettes" [titre]="rec.titre" [instructions]='rec.instructions' [ingredients]='rec.ingredients'></app-recettes>
+</ion-list>
+
+<ion-button routerLink="/formulaire" routerDirection="forward">+</ion-button>
+<ion-button (click)="delete()">Supprimer les recettes</ion-button>
+
+<div></div>
+</ion-content>

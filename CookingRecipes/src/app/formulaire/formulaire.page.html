@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nouvelle recette</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-grid>
+  <ion-row>
+    <ion-list>
+      <ion-input [(ngModel)]="titre" placeholder="Titre de la recette"></ion-input>
+      <ion-input [(ngModel)]="nom" placeholder="Ingredient"></ion-input>
+      <ion-input [(ngModel)]="qte" placeholder="Quantite"></ion-input>
+      <ion-segment (ionChange)="onSeg($event)">
+        <ion-segment-button value="GRS">
+          <ion-label>GRS</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="ML">
+          <ion-label>ML</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <ion-button (click)="addIng()" [disabled]="disabled2()">+</ion-button>
+    </ion-list>
+  </ion-row>
+  <ion-row>
+    <ion-list>
+      <app-ingredient *ngFor="let ingredient of listeIngredients" [nom]="ingredient.nom" [qte]="ingredient.qte" [unite]="ingredient.unite"></app-ingredient>
+    </ion-list>
+  </ion-row>
+  <ion-row>
+    <ion-input [(ngModel)]="instructions" placeholder="Déroulé de la recette"></ion-input>
+  </ion-row>
+  <ion-button [disabled]="disabled()" (click)="envoi()" [routerLink]="['/home', { data: foi}]" routerDirection="forward" expand="block">Enregistrer</ion-button>
+</ion-grid>
+
+</ion-content>

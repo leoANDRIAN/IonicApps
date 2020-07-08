@@ -1,0 +1,15 @@
+<ion-card (click)="fonction()">
+  <ion-card-header>
+    <ion-card-title>
+      {{this.titre}}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="bonsoir===true">
+    <ion-list *ngFor="let ing of ingredients">
+      <ion-item>
+        {{ing.nom}} {{ing.qte}} {{ing.unite}}
+      </ion-item>
+    </ion-list>
+    {{this.instructions}}
+  </ion-card-content>
+</ion-card>

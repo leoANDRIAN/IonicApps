@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Galerie
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-card (click)="sendEmail(photo.long, photo.lat, photo.nom)" *ngFor="let photo of tab">
+      <img [src]="photo.photo"/>
+      <ion-card-header>
+        <ion-card-subtitle>{{photo.long}} {{photo.lat}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{photo.nom}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Appareil Photo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div><ion-button (click)="takePicture()" expand="block">Prendre photo</ion-button></div>
+  <div><img [src]="capturedPicture" /></div>
+  <ion-input [(ngModel)]="nom" placeholder="Nom de la photo"></ion-input>
+  <p>{{this.lat}} {{this.lng}} {{this.nom}}</p>
+  <ion-button (click)="envoiData()" expand="block">Enregistrer</ion-button>
+</ion-content>
